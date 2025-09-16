@@ -26,8 +26,8 @@ export default function ProductsPage(){
       
       <section className={ui.panel}>
         <header className={ui.header}>
-          <h1 className={ui.title}>Korean Food Products</h1>
-          <p className={ui.sub}>Discover authentic Korean food products from premium seasoned seaweed to traditional kimchi.</p>
+          <h1 className={ui.title}>Discover Authentic Korean Flavors</h1>
+          <p className={ui.sub}>Premium Korean food products crafted with traditional recipes and modern quality standards. From artisanal kimchi to gourmet seaweed snacks.</p>
         </header>
 
         {/* 검색바 */}
@@ -56,7 +56,7 @@ export default function ProductsPage(){
         {/* 카드 그리드 */}
         <div className={ui.grid} role="list" aria-label="product list">
           {list.map(p => (
-            <article key={p.id} role="listitem" className={ui.card}>
+            <article key={p.id} role="listitem" className={ui.card} style={{cursor:'pointer'}} onClick={() => window.location.href = `/st/products/${p.id}`}>
               <div className={ui.thumb}>
                 {p.thumbnail ? <img src={p.thumbnail} alt={p.name}/> : null}
               </div>
@@ -66,7 +66,7 @@ export default function ProductsPage(){
                 <div className={ui.meta}>Certification: {p.tags.join(', ')}</div>
                 <div className={ui.spread}>
                   <div style={{fontWeight:800}}>{`$${p.price.toFixed(2)}/${p.category==='Rice Products'?'pack':p.category==='Meal Kit'?'set':'pack'}`}</div>
-                  <a href={`/st/products/${p.id}`} className={ui.button}>Order Now</a>
+                  <a href={`/st/products/${p.id}`} className={ui.button} onClick={(e) => e.stopPropagation()}>Order Now</a>
                 </div>
               </div>
             </article>

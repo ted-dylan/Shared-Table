@@ -140,20 +140,46 @@ export default function HomePage() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-1">
-            {["Product Catalog", "Company Info", "Trading Guide", "Support", "About Us"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
-              >
-                {item}
-              </a>
-            ))}
+            <a
+              href="/st/products"
+              className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
+            >
+              Product Catalog
+            </a>
+            <a
+              href="/st/vendors"
+              className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
+            >
+              Company Info
+            </a>
+            <a
+              href="/st/trading-guide"
+              className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
+            >
+              Trading Guide
+            </a>
+            <a
+              href="/st/support"
+              className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
+            >
+              Support
+            </a>
+            <a
+              href="/st/about"
+              className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
+            >
+              About Us
+            </a>
           </div>
 
           {/* Action Buttons */}
           <div className="flex items-center gap-3">
-            <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6">contact</Button>
+            <Button 
+              className="bg-white text-black hover:bg-white/90 rounded-full px-6"
+              onClick={() => window.open('mailto:contact@sharedtable.com?subject=Business Inquiry', '_blank')}
+            >
+              contact
+            </Button>
           </div>
         </nav>
 
@@ -181,8 +207,9 @@ export default function HomePage() {
               size="lg"
               variant="outline"
               className="bg-black/40 ring-1 ring-white/20 backdrop-blur border-0 text-white hover:bg-black/50 rounded-full px-8 py-4 text-lg"
+              asChild
             >
-              Browse Companies
+              <a href="/st/vendors">Browse Companies</a>
             </Button>
           </div>
 
@@ -385,6 +412,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 className="bg-white text-black hover:bg-white/90 rounded-full px-12 py-4 text-lg font-semibold"
+                onClick={() => window.open('mailto:contact@sharedtable.com?subject=Trading Inquiry', '_blank')}
               >
                 Start Trading
               </Button>
@@ -498,7 +526,10 @@ export default function HomePage() {
                       placeholder="Please provide detailed information about your inquiry..."
                     />
                   </div>
-                  <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-lg py-3 font-normal text-base">
+                  <Button 
+                    className="w-full bg-black text-white hover:bg-gray-800 rounded-lg py-3 font-normal text-base"
+                    onClick={() => alert('문의가 전송되었습니다! 빠른 시일 내에 연락드리겠습니다.')}
+                  >
                     Send Inquiry
                   </Button>
                 </form>
@@ -526,7 +557,10 @@ export default function HomePage() {
                       <p className="text-gray-600">Business Development Manager</p>
                     </div>
                   </div>
-                  <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-lg flex items-center justify-center gap-2">
+                  <Button 
+                    className="w-full bg-black text-white hover:bg-gray-800 rounded-lg flex items-center justify-center gap-2"
+                    onClick={() => window.open('mailto:sarah.kim@sharedtable.com?subject=Business Inquiry', '_blank')}
+                  >
                     <Mail className="w-4 h-4" />
                     Email Inquiry
                   </Button>
@@ -559,13 +593,26 @@ export default function HomePage() {
               <div>
                 <h3 className="text-sm font-bold uppercase tracking-wider mb-6">Services</h3>
                 <ul className="space-y-3">
-                  {["Product Catalog", "Company Search", "Quote Request", "Trade Management"].map((item) => (
-                    <li key={item}>
-                      <a href="#" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
-                        {item}
-                      </a>
-                    </li>
-                  ))}
+                  <li>
+                    <a href="/st/products" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Product Catalog
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/vendors" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Company Search
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/trading-guide" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Quote Request
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/support" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Trade Management
+                    </a>
+                  </li>
                 </ul>
               </div>
 
@@ -573,13 +620,26 @@ export default function HomePage() {
               <div>
                 <h3 className="text-sm font-bold uppercase tracking-wider mb-6">Support</h3>
                 <ul className="space-y-3">
-                  {["Customer Center", "User Guide", "Company Registration", "Partnership"].map((item) => (
-                    <li key={item}>
-                      <a href="#" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
-                        {item}
-                      </a>
-                    </li>
-                  ))}
+                  <li>
+                    <a href="/st/support" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Customer Center
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/trading-guide" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      User Guide
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/vendors" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Company Registration
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/about" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Partnership
+                    </a>
+                  </li>
                 </ul>
               </div>
 
@@ -587,13 +647,26 @@ export default function HomePage() {
               <div>
                 <h3 className="text-sm font-bold uppercase tracking-wider mb-6">Company</h3>
                 <ul className="space-y-3">
-                  {["About Us", "Careers", "Privacy Policy", "Terms of Service"].map((item) => (
-                    <li key={item}>
-                      <a href="#" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
-                        {item}
-                      </a>
-                    </li>
-                  ))}
+                  <li>
+                    <a href="/st/about" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      About Us
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/support" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Careers
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/support" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/st/support" className="text-white/70 hover:text-white transition-colors text-sm leading-relaxed">
+                      Terms of Service
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -608,7 +681,12 @@ export default function HomePage() {
                     placeholder="Enter your email address"
                     className="flex-1 px-4 py-3 rounded-lg bg-white/5 ring-1 ring-white/20 backdrop-blur border-0 text-white placeholder:text-white/50 focus:ring-2 focus:ring-white/30 focus:outline-none"
                   />
-                  <Button className="bg-white text-black hover:bg-white/90 rounded-lg px-6 h-[50px]">Subscribe</Button>
+                  <Button 
+                    className="bg-white text-black hover:bg-white/90 rounded-lg px-6 h-[50px]"
+                    onClick={() => alert('뉴스레터 구독이 완료되었습니다!')}
+                  >
+                    Subscribe
+                  </Button>
                 </div>
               </div>
             </div>

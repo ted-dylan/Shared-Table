@@ -1,6 +1,17 @@
+"use client"
 import ui from '@/app/st/_ui/panel.module.css';
 import { vendors } from '@/lib/st/data/vendors';
+import { InquiryPopup } from '@/components_st/inquiry-popup';
+import { useState } from 'react';
+
 export default function Vendors(){
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [selectedVendor, setSelectedVendor] = useState<string>('');
+
+  const handleInquiryClick = (vendorName: string) => {
+    setSelectedVendor(vendorName);
+    setPopupOpen(true);
+  };
   return (
     <div className={ui.page}>
       {/* 홈으로 돌아가기 로고 */}
@@ -10,8 +21,8 @@ export default function Vendors(){
       
       <section className={ui.panel}>
         <header className={ui.header}>
-          <h1 className={ui.title}>Company Info</h1>
-          <p className={ui.sub}>Discover trusted Korean manufacturers and exporters.</p>
+          <h1 className={ui.title}>Trusted Korean Partners</h1>
+          <p className={ui.sub}>Connect with verified Korean food manufacturers and exporters. Each company has been carefully vetted for quality, reliability, and export capabilities.</p>
         </header>
         <div className={`${ui.grid}`}>
           {vendors.map(v => (
@@ -25,13 +36,26 @@ export default function Vendors(){
                 <div className={ui.meta}>{v.bio ?? '—'}</div>
                 <div className={ui.spread}>
                   <a href={`/st/vendors/${v.id}`} className={ui.button}>View Company</a>
-                  <a href={`/st/inquiry`} className={ui.buttonGhost}>Inquiry</a>
+                  <button 
+                    onClick={() => handleInquiryClick(v.name)}
+                    className={ui.buttonGhost}
+                    style={{ border: 'none', background: 'none', cursor: 'pointer' }}
+                  >
+                    Inquiry
+                  </button>
                 </div>
               </div>
             </article>
           ))}
         </div>
       </section>
+      
+      {/* Inquiry Popup */}
+      <InquiryPopup 
+        isOpen={popupOpen}
+        onClose={() => setPopupOpen(false)}
+        vendorName={selectedVendor}
+      />
     </div>
   );
 }

@@ -2,3 +2,5 @@ export type Product={id:string;name:string;vendorId:string;price:number;currency
 export type Vendor={id:string;name:string;country?:string;bio?:string;logo?:string;products?:string[]};
 export type News={id:string;title:string;date:string;body:string;tags:string[]};
 
+
+
